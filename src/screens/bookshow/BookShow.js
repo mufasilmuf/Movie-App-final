@@ -191,26 +191,32 @@ const BookShow = (props) => {
     });
   };
 
+  let handleBack = () => {
+    props.history.goBack();
+  };
+
   return (
     <div>
+      {/* --------------------------------HEADER------------------------------------------ */}
       <Header baseUrl={props.baseUrl} />
+      {/* --------------------------------BACK BUTTON----------------------------------------------- */}
       <div className="bookShow">
         <Typography className="back">
-          <Link
-            to="/Details"
-            style={{ color: "black", textDecoration: "none" }}
-          >
-            <span className="backtoDetails"> &#60; Back to Movie Details </span>
+          <Link to="/Details" style={{ textDecoration: "none" }}>
+            <span className="backtoDetails" onClick={handleBack}>
+              {" "}
+              &#60; Back to Movie Details{" "}
+            </span>
           </Link>
         </Typography>
-
+        {/* ------------------------------TITLE------------------------------------------------- */}
         <Card className="cardStyle">
           <CardContent>
             <Typography variant="headline" component="h2">
               BOOK SHOW
             </Typography>
             <br />
-
+            {/* -----------------------------------CHOOSE LOCATION-------------------------------------------- */}
             <FormControl required className="formControl">
               <InputLabel htmlFor="location">Choose Location:</InputLabel>
               <Select value={location} onChange={locationChangeHandler}>
@@ -226,6 +232,7 @@ const BookShow = (props) => {
             </FormControl>
             <br />
             <br />
+            {/* ---------------------------------------CHOOSE THEATRE---------------------------------------- */}
             <FormControl required className="formControl">
               <InputLabel htmlFor="theatre">Choose Theatre:</InputLabel>
               <Select value={theatre} onChange={theatreChangeHandler}>
@@ -291,6 +298,7 @@ const BookShow = (props) => {
             <Typography>Total Price: Rs. {unitPrice * tickets}</Typography>
             <br />
             <br />
+
             <Button
               variant="contained"
               onClick={bookShowButtonHandler}

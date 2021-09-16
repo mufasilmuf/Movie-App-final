@@ -168,7 +168,7 @@ let moviesData = [
     duration: 129,
     poster_url:
       "https://upload.wikimedia.org/wikipedia/en/c/cd/Shahid_Poster_%282013%29.jpg",
-    trailer_url: "https://www.youtube.com/watch?v=XiQXmIn7qbI",
+    trailer_url: "https://www.youtube.com/watch?v=2p8LyAte-M8",
     wiki_url: "https://en.wikipedia.org/wiki/Shahid_(film)",
     release_date: "2013-10-18T00:00:00+05:30",
     censor_board_rating: "NR",
