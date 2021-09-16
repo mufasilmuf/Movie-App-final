@@ -1,0 +1,9 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  height: 271px;
+  width: 100%;
+}
+.Images {
+  width: 100%;
+}

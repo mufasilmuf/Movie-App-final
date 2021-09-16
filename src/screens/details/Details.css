@@ -1,0 +1,15 @@
+#btnBacktoHome {
+  margin-left: 24px;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  height: 24px;
+}
+#btnBacktoHome {
+  cursor: pointer;
+}
+.Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 16px;
+}
