@@ -1,6 +1,8 @@
 import { Button, Typography } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
+
+import LoginModule from "../Login/RegistorModal/ModalTabs";
 import "./Header.css";
 
 var Header = (props) => {
@@ -37,9 +39,7 @@ var Header = (props) => {
             </Link>
           </div>
         )}
-        <Button variant="contained" className="btnloggin">
-          Login
-        </Button>
+        <LoginModule />
       </div>
     </div>
   );
