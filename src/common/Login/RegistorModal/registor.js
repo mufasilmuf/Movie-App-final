@@ -1,17 +1,16 @@
-import {
-  Button,
-  FormControl,
-  Input,
-  InputLabel,
-  Typography,
-} from "@material-ui/core";
+import { Button, FormControl, Input, InputLabel } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import { createTheme } from "@material-ui/core/styles";
 import { useState } from "react";
 import { ValidatorForm } from "react-material-ui-form-validator";
 
 var Registor = () => {
+  //it validation for the user inputs
   const [validation, setvalidation] = useState("");
+  //it excute the status of the Registeration
   const [updateSucess, setupdateSucess] = useState("");
+
+  //it array of the user lists
   const [register, setregister] = useState([
     {
       firstName: "Mohamed",
@@ -21,16 +20,6 @@ var Registor = () => {
       contactNo: "9095042785",
     },
   ]);
-
-  // ------------------------------------its create a new person at every time--------------------
-  let NewUser = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    contactNo: "",
-  };
-  // ------------------------------------its create a new person at every time--------------------
 
   let theme = createTheme();
   let componentMargin = theme.spacing(1);
@@ -45,26 +34,37 @@ var Registor = () => {
     console.log("i am side dosubmit");
   };
 
-  let validate = (e) => {
-    console.log("i am side validate function");
+  // ------------------------------------its create a new person at every time--------------------
+  let NewUser = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    contactNo: "",
+  };
+  // ------------------------------------its create a new person at every time--------------------
 
+  let validate = (e) => {
     var Name = e.target.name;
     let value = e.target.value;
     NewUser[Name] = value;
 
-    if (value === "" && Name === e.target.name) {
-      setvalidation("required");
-    } else {
-      setvalidation("");
-    }
-    console.log(e.target.name + ":" + e.target.value);
+    // if (value === "" && Name === e.target.name) {
+    //   setvalidation("required");
+    // } else {
+    //   setvalidation("");
+    // }
+    // console.log(e.target.name + ":" + e.target.value);
   };
 
   let handleClick = () => {
     let updateuser = [...register];
     console.log(NewUser);
+    //it update the Registored use at every time ..
     updateuser.push(NewUser);
+    //its assign the new array into the register
     setregister(updateuser);
+
     NewUser = {
       firstName: "",
       lastName: "",
@@ -107,7 +107,6 @@ var Registor = () => {
         </FormControl>
       </Typography>
       <Button
-        type="submit"
         variant="contained"
         color="primary"
         style={{ marginTop: "10%", marginLeft: "25%" }}

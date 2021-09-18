@@ -5,7 +5,6 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import LoginDetails from "./login";
 import Registor from "./registor";
-import Logout from "./logoutbtn";
 
 const style = {
   position: "absolute",
@@ -79,7 +78,7 @@ var LoginModule = () => {
       <Button variant="contained" Style={loginStyle} onClick={handleOpen}>
         Login
       </Button>
-      <Logout Style={logoutStyle}></Logout>
+
       <Modal
         open={open}
         onClose={handleClose}

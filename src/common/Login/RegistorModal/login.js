@@ -1,13 +1,8 @@
-import {
-  Button,
-  FormControl,
-  Input,
-  InputLabel,
-  Typography,
-} from "@material-ui/core";
-import { createTheme } from "@material-ui/core/styles";
 import { ValidatorForm } from "react-material-ui-form-validator";
 import { useState } from "react";
+import { Button, FormControl, InputLabel } from "@material-ui/core";
+import Input from "@material-ui/core/Input";
+import { createTheme } from "@material-ui/core/styles";
 
 var LoginDetails = (props) => {
   let theme = createTheme();
@@ -21,8 +16,10 @@ var LoginDetails = (props) => {
   let doSumbit = (e) => {
     e.preventDefault();
   };
-  const [validation, setvalidation] = useState("");
+  //its validate the user credentails.....................
   const [loginvalidation, setloginvalidation] = useState("");
+  const [validator, setvalidator] = useState("");
+
   const [register, setregister] = useState({
     firstName: "Mohamed",
     lastName: "mufasil",
@@ -34,23 +31,21 @@ var LoginDetails = (props) => {
   var userName = "";
   var password = "";
 
-  let onTextchange1 = (e) => {
+  var onTextchnage1 = (e) => {
     userName = e.target.value;
-
-    if (userName === "") {
-      setvalidation("required");
+    if (e.target.value === "") {
+      setvalidator("required");
     } else {
-      setvalidation("");
+      setvalidator("");
     }
   };
 
-  let onTextchange2 = (e) => {
+  var onTextchnage2 = (e) => {
     password = e.target.value;
-
-    if (password === "") {
-      setvalidation("required");
+    if (e.target.value === "") {
+      setvalidator("required");
     } else {
-      setvalidation("");
+      setvalidator("");
     }
   };
 
@@ -60,14 +55,8 @@ var LoginDetails = (props) => {
     console.log(userName + " entered username");
     console.log(password + " entered password");
 
-    if (userName == register.firstName && password == register.password) {
+    if (userName === register.firstName && password === register.password) {
       window.location = "/home";
-      props.loginStyle = {
-        display: "none",
-      };
-      props.LogoutBtn = {
-        display: "block",
-      };
     } else {
       setloginvalidation("Invalid Login");
     }
@@ -75,30 +64,30 @@ var LoginDetails = (props) => {
 
   return (
     <ValidatorForm onSubmit={doSumbit}>
-      <Typography>
-        <FormControl style={componentStyle}>
-          <InputLabel>Username*</InputLabel>
-          <Input onChange={onTextchange1} />
-          <div style={{ color: "red" }}>{validation}</div>
-        </FormControl>
-        <FormControl style={componentStyle}>
-          <InputLabel>Password*</InputLabel>
-          <Input type="password" onChange={onTextchange2} />
-          <div style={{ color: "red" }}>{validation}</div>
-        </FormControl>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          style={{ marginTop: "10%", marginLeft: "30%" }}
-          onClick={handleclick}
-        >
-          Login
-        </Button>
-        <div style={{ color: "red", marginTop: "10%", marginLeft: "17%" }}>
-          {loginvalidation}
-        </div>
-      </Typography>
+      {/* TextValidator is wrapper element comes from react material UI form validator its smillar to input tag */}
+      <FormControl style={componentStyle}>
+        <InputLabel>Username*</InputLabel>
+        <Input onChange={onTextchnage1} />
+        <div style={{ color: "red" }}>{validator}</div>
+      </FormControl>
+
+      <FormControl style={componentStyle}>
+        <InputLabel>Password*</InputLabel>
+        <Input type="password" onChange={onTextchnage2} />
+        <div style={{ color: "red" }}>{validator}</div>
+      </FormControl>
+      <Button
+        style={{ marginTop: "10%", marginLeft: "30%" }}
+        type="submit"
+        variant="contained"
+        color="primary"
+        onClick={handleclick}
+      >
+        Login
+      </Button>
+      <div style={{ marginTop: "10%", color: "red", marginLeft: "27%" }}>
+        {loginvalidation}
+      </div>
     </ValidatorForm>
   );
 };
